@@ -23,7 +23,7 @@ const blogs = [
   },
 ];
 
-const BlogSection = () => {
+const Blogs = () => {
   return (
     <section className="py-12 px-6">
       <div className="text-center mb-8">
@@ -31,7 +31,7 @@ const BlogSection = () => {
         <p className="text-gray-600">Find a bright idea to suit your taste with our great selection</p>
       </div>
 
-      {/* Wrap everything inside TooltipProvider */}
+      
       <TooltipProvider>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {blogs.map((blog, index) => (
@@ -72,4 +72,4 @@ const BlogSection = () => {
   );
 };
 
-export default BlogSection;
+export default Blogs;

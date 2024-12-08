@@ -12,10 +12,10 @@ const Header = () => {
           {/* Navbar */}
           <nav className="w-full md:w-auto">
             <ul className="flex md:flex-row gap-4 md:gap-6 text-black">
-              <li><Link href="#" className="cursor-pointer text-left md:text-center">Home</Link></li>
-              <li><Link href="#" className="cursor-pointer text-left md:text-center">Shop</Link></li>
-              <li><Link href="#" className="cursor-pointer text-left md:text-center">About</Link></li>
-              <li><Link href="#" className="cursor-pointer text-left md:text-center">Contact</Link></li>
+              <li><Link href="/" className="cursor-pointer text-left md:text-center">Home</Link></li>
+              <li><Link href="/shop" className="cursor-pointer text-left md:text-center">Shop</Link></li>
+              <li><Link href="/about" className="cursor-pointer text-left md:text-center">About</Link></li>
+              <li><Link href="/contact" className="cursor-pointer text-left md:text-center">Contact</Link></li>
             </ul>
           </nav>
 

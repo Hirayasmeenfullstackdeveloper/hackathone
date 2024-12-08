@@ -19,7 +19,7 @@ const Hero = () => {
         
       </div>
 
-      {/* Image */}
+      {/* Images */}
       <div className=" w-1/2 md:w-1/2 flex justify-center items-center mr-6 md:mr-8">
         <Image
           src="/images/Rocket-single-seater.png"

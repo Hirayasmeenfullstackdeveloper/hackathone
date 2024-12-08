@@ -3,20 +3,15 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="bg-white text-black py-6 w-full h-[400px]">
-      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-6">
-
-        {/* Left Column: Address and Company Info */}
+      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-6"> 
         <div className="flex flex-col space-y-2">
-          
-          
-          {/* Address */}
-          <address className="text-sm mt-28 text-[#9F9F9F]">
+        <address className="text-sm mt-28 text-[#9F9F9F]">
             400 University Drive Suite 200, <br />
             Coral Gables, FL 33134, USA
           </address>
         </div>
 
-        {/* Second Column: Quick Links (Home, Shop, About, Contact) */}
+        {/* Links */}
         <div className="flex flex-col space-y-4 mt-6">
           <h5 className="font-semibold text-[#9F9F9F] ">Links</h5>
           <ul>
@@ -27,7 +22,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Third Column: Help Links (Help, Payment Options, Returns, etc.) */}
+        
         <div className="flex flex-col space-y-4 mt-6">
           <h5 className="font-semibold text-[#9F9F9F] ">Support</h5>
           <ul>
@@ -38,7 +33,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Fourth Column: Newsletter Section */}
+        
         <div className="flex flex-col space-y-4 mt-6">
           <h5 className="font-semibold text-[#9F9F9F] ">Newsletter</h5>
           <p className="text-sm text-[#9F9F9F] ">Enter your Email Address Subscribe</p>
@@ -47,7 +42,7 @@ const Footer = () => {
       </div>
       <hr className="mt-44"/>
 
-      {/* Copyright Section */}
+       {/* Copyright  */}
       <div className="text-left md;text-left  ml:2 md:ml-4 text-[16px ] text-black py-4">
         <p>&copy; {new Date().getFullYear()} Company Name. All rights reserved.</p>
       </div>
