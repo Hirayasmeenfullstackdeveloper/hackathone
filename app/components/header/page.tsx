@@ -5,9 +5,9 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header>
+    <header className="bg-[#FBEBB5]">
       {/* Header */}
-      <div className="bg-[#FBEBB5] w-full h-[100px]">
+      <div className="w-full h-[60px] bg-white">
         <div className="flex justify-between items-center h-full px-4 md:px-16">
           {/* Navbar */}
           <nav className="w-full md:w-auto">
