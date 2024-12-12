@@ -1,6 +1,5 @@
 import React from "react";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@radix-ui/react-tooltip";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 const products = [
   {
@@ -53,7 +52,7 @@ const TopPicksSection = () => {
             <div key={index} className="p-6 ">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <img src={item.image} alt={item.name} className="w-full h-48 object-cover rounded" />
+                  <Image src={item.image} alt={item.name} className="w-full h-48 object-cover rounded" />
                 </TooltipTrigger>
                 <TooltipContent className="p-2 bg-gray-800 text-white text-sm rounded-md">
                   {item.tooltip}
