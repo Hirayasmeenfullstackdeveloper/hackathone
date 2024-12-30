@@ -2,6 +2,7 @@ import React from "react";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@radix-ui/react-tooltip"; // Added TooltipProvider
 import { FiClock, FiCalendar } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 const blogs = [
   {
     title: "Going all-in with millennial design",
@@ -26,7 +27,7 @@ const blogs = [
 const Blogs = () => {
   return (
     <section className="py-12 px-6">
-      <div className="text-center mb-8">
+      <div className="text-center md:text-center mb-8">
         <h2 className="text-2xl font-bold">Our Blogs</h2>
         <p className="text-gray-600">Find a bright idea to suit your taste with our great selection</p>
       </div>
@@ -36,7 +37,12 @@ const Blogs = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {blogs.map((blog, index) => (
             <div key={index} className="overflow-hidden">
-              <img src={blog.image} alt={blog.title} className="w-full h-48 object-cover rounded" />
+              <Image src={blog.image} 
+              alt={blog.title} 
+              width={500}
+              height={300}
+              
+              className="w-full h-48 object-cover rounded" />
               <div className="p-4">
                 <Tooltip>
                   <TooltipTrigger asChild>

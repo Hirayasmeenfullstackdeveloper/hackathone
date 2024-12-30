@@ -47,7 +47,11 @@ const TopPicksSection = () => {
             <div key={index} className="p-6 ">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Image src={item.image} alt={item.name} className="w-full h-48 object-cover rounded" />
+                  <Image src={item.image}
+                   alt={item.name} 
+                   width={287}
+                   height={287}
+                   className="w-full h-48 object-cover rounded" />
                 </TooltipTrigger>
                 <TooltipContent className="p-2 bg-gray-800 text-white text-sm rounded-md">
                   {item.tooltip}
