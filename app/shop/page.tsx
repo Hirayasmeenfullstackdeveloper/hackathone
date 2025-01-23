@@ -30,6 +30,54 @@ const products = [
     image: "/images/mirror.png",
     tooltip: "Zohair",
   },
+  {
+    name: "Trenton modular sofa",
+    price: "Rs. 25,000.00",
+    image: "/images/modularsofa.png",
+    tooltip: "Muntaha Shah",
+  },
+  {
+    name: "Granite dining table with dining chair",
+    price: "Rs. 25,000.00",
+    image: "/images/chairs.png",
+    tooltip: "Zohair",
+  },
+  {
+    name: "Outdoor bar table and stool",
+    price: "Rs. 25,000.00",
+    image: "/images/chairs2.png",
+    tooltip: "Zohair",
+  },
+  {
+    name: "Plain console with teak mirror",
+    price: "Rs. 25,000.00",
+    image: "/images/mirror.png",
+    tooltip: "Zohair",
+  },
+  {
+    name: "Trenton modular sofa",
+    price: "Rs. 25,000.00",
+    image: "/images/modularsofa.png",
+    tooltip: "Muntaha Shah",
+  },
+  {
+    name: "Granite dining table with dining chair",
+    price: "Rs. 25,000.00",
+    image: "/images/chairs.png",
+    tooltip: "Zohair",
+  },
+  {
+    name: "Outdoor bar table and stool",
+    price: "Rs. 25,000.00",
+    image: "/images/chairs2.png",
+    tooltip: "Zohair",
+  },
+  {
+    name: "Plain console with teak mirror",
+    price: "Rs. 25,000.00",
+    image: "/images/mirror.png",
+    tooltip: "Zohair",
+  },
 ];
 
 const TopPicksSection = () => {
@@ -44,11 +92,13 @@ const TopPicksSection = () => {
          alt="image"
          width={77}
          height={77}
-         className="absolute ml-6 "
+         className="absolute ml-1 "
          
          />
+     
+      <h2 className="font-semibold mt-14 text-black text-[30px]">Shop</h2>
+      <p className="text-gray-600">Home &gt; Shop</p>
       </div>
-      <h2 className="font-semibold text-x1 mt-32 text-black text-[48px]">Shop</h2>
       </div>
       <div className="bg-[#FAF4F4] w-full h-[100px] top-[463px] mt-12 p-2 flex items-center justify-between">
       {/* Left Section */}
@@ -108,11 +158,7 @@ const TopPicksSection = () => {
         </div>
       </TooltipProvider>
 
-      <div className="text-center mt-6">
-      <p className="text-black font-medium underline">
-          View More
-        </p>
-      </div>
+     
     </section>
 
     </div>
