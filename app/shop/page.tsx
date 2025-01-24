@@ -31,51 +31,51 @@ const products = [
     tooltip: "Zohair",
   },
   {
-    name: "Trenton modular sofa",
-    price: "Rs. 25,000.00",
-    image: "/images/modularsofa.png",
+    name: "SJP_0825",
+    price: "Rs. 200,000.00",
+    image: "/images/SJP0825.png",
     tooltip: "Muntaha Shah",
   },
   {
-    name: "Granite dining table with dining chair",
-    price: "Rs. 25,000.00",
-    image: "/images/chairs.png",
+    name: "Bella chair and table",
+    price: "Rs. 100,000.00",
+    image: "/images/Maskgroup(5).png",
     tooltip: "Zohair",
   },
   {
-    name: "Outdoor bar table and stool",
-    price: "Rs. 25,000.00",
-    image: "/images/chairs2.png",
+    name: "Kent coffee table",
+    price: "Rs. 225,000.00",
+    image: "/images/Kentcoffeetable.png",
+    // tooltip: "Zohair",
+  },
+  {
+    name: "Maya sofa three seater",
+    price: "Rs. 115,000.00",
+    image: "/images/Maskgroup(10).png",
     tooltip: "Zohair",
   },
   {
-    name: "Plain console with teak mirror",
-    price: "Rs. 25,000.00",
-    image: "/images/mirror.png",
-    tooltip: "Zohair",
-  },
-  {
-    name: "Trenton modular sofa",
-    price: "Rs. 25,000.00",
-    image: "/images/modularsofa.png",
+    name: "Reclaimed teak coffee table",
+    price: "Rs. 25,200.00",
+    image: "/images/Maskgroup(4).png",
     tooltip: "Muntaha Shah",
   },
   {
-    name: "Granite dining table with dining chair",
-    price: "Rs. 25,000.00",
-    image: "/images/chairs.png",
+    name: "Grain coffee table",
+    price: "Rs. 15,000.00",
+    image: "/images/Graincoffeetable1.png",
     tooltip: "Zohair",
   },
   {
-    name: "Outdoor bar table and stool",
-    price: "Rs. 25,000.00",
-    image: "/images/chairs2.png",
+    name: "Asgaard sofa",
+    price: "Rs. 250,000.00",
+    image: "/images/Asgaard-sofa-1.png",
     tooltip: "Zohair",
   },
   {
-    name: "Plain console with teak mirror",
-    price: "Rs. 25,000.00",
-    image: "/images/mirror.png",
+    name: "Plain console_",
+    price: "Rs. 258,200.00",
+    image: "/images/Maskgroup(7).png",
     tooltip: "Zohair",
   },
 ];
@@ -158,7 +158,21 @@ const TopPicksSection = () => {
         </div>
       </TooltipProvider>
 
-     
+     {/* <!-- Free Delivery, Return, and Payment Info --> */}
+<div className="bg-[#FAF4F4] h-32 p-8 mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-center justify-between">
+  <div>
+    <h3 className="font-bold">Free Delivery</h3>
+    <p>On all orders above Rs. 10,000.</p>
+  </div>
+  <div>
+    <h3 className="font-bold">90 Days Return</h3>
+    <p>Easy returns within 90 days.</p>
+  </div>
+  <div>
+    <h3 className="font-bold">Secure Payment</h3>
+    <p>100% secure payment process.</p>
+  </div>
+</div>
     </section>
 
     </div>

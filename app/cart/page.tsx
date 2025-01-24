@@ -74,9 +74,9 @@ export default function CartPage() {
       <span>Total:</span>
       <span className="font-bold">Rs. 250,000.00</span>
     </div>
-    <button className="w-24 border-black border-2 text-black py-0 rounded hover:none">
+    <Button className="w-24 border-black border-2 text-black py-0 rounded hover:none">
       Check Out
-    </button>
+    </Button>
   </div>
 </div>
   
