@@ -25,7 +25,7 @@ export default function CartPage() {
   {/* <!-- Left section: Table + Product Image --> */}
   <div className="flex flex-col md:flex-row justify-between items-start gap-6 p-4 bg-white">
   {/* Left section: Cart Table */}
-  <div className="flex-1 bg-white p-4 overflow-x-auto">
+  <div className="flex-1 bg-white p-6 overflow-x-auto">
     <table className="table-auto w-full text-left border-collapse mb-6">
       <thead>
         <tr className="bg-[#FFF9E5] text-gray-700">
@@ -64,7 +64,7 @@ export default function CartPage() {
   </div>
 
   {/* Right section: Cart Totals */}
-  <div className="bg-[#FFF9E5] p-4 sm: w-[300] h-[300] md:w-[390]  ">
+  <div className="bg-[#FFF9E5] p-6 ml-32 sm: w-[300] h-[300] md:w-[390]  ">
     <h2 className="text-lg font-bold mb-4">Cart Totals</h2>
     <div className="flex justify-between mb-2">
       <span>Subtotal:</span>

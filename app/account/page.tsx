@@ -22,36 +22,45 @@ const Account = () => {
             </div>
             </div>
 
-            <div className="flex justify-center items-center min-h-screen bg-white">
-      <div className="w-full max-w-4xl bg-white p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Login Section */}
-        <div className="space-y-6">
-          <h2 className="text-lg font-semibold">Log In</h2>
-          <Input placeholder="Username or email address" />
-          <Input type="password" placeholder="Password" />
-          <div className="flex items-center gap-2">
-            <Checkbox id="remember" />
-            <label htmlFor="remember" className="text-sm">Remember me</label>
-          </div>
-          <Button className="w-24 border-black border-2 text-black py-0 rounded hover:none">Log In</Button>
-          <a href="#" className="text-sm text-black py-2">Lost Your Password?</a>
-        </div>
-
-        {/* Register Section */}
-        <div className="space-y-4">
-          <h2 className="text-lg font-semibold">Register</h2>
-          <Input placeholder="Email address" />
-          <p className="text-sm text-gray-500">
-            A link to set a new password will be sent to your email address.
-          </p>
-          <p className="text-sm text-gray-500">
-            By registering, you agree to our{" "}
-            <a href="#" className="text-blue-500">privacy policy</a>.
-          </p>
-          <Button className="w-full">Register</Button>
-        </div>
+            <div className="flex justify-center items-center min-h-screen bg-white text-left">
+  <div className="w-full max-w-4xl bg-white p-4 grid grid-cols-1 md:grid-cols-2 gap-10">
+    {/* Login Section (Left side) */}
+    <div className="space-y-6">
+      <h2 className="text-lg font-semibold">Log In</h2>
+      <div>
+        <label htmlFor="login-username" className="text-sm text-gray-700">Username or email address</label>
+        <Input id="login-username" />
       </div>
-    </div> 
+      <div>
+        <label htmlFor="login-password" className="text-sm text-gray-700">Password</label>
+        <Input type="password" id="login-password" />
+      </div>
+      <div className="flex items-center gap-2">
+        <Checkbox id="remember" />
+        <label htmlFor="remember" className="text-sm">Remember me</label>
+      </div>
+      <Button className="w-24 border-black border-2 text-black py-0 rounded hover:none">Log In</Button>
+      <a href="#" className="text-sm text-black p-2">Lost Your Password?</a>
+    </div>
+
+    {/* Register Section (Right side) */}
+    <div className="space-y-6">
+      <h2 className="text-lg font-semibold">Register</h2>
+      <div>
+        <label htmlFor="email" className="text-sm text-gray-700">Email address</label>
+        <Input id="email" />
+      </div>
+      <p className="text-sm text-gray-500">
+        A link to set a new password will be sent to your email address.
+      </p>
+      <p className="text-sm text-gray-500">
+        Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy.{" "}
+        <a href="#" className="text-blue-500">privacy policy</a>.
+      </p>
+      <Button className="w-24 border-black border-2 text-black py-0 rounded hover:none">Register</Button>
+    </div>
+  </div>
+</div>
 
 
 
