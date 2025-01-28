@@ -1,90 +1,34 @@
-import React from "react";
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@radix-ui/react-tooltip";
+"use client"
+import { client } from "@/sanity/lib/client"
+// import React {useState} from "react";
+import { Product } from "@/types/product"
+// import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@radix-ui/react-tooltip";
 import Image from "next/image";
 import { BiGridSmall } from "react-icons/bi";
 import { TbAdjustmentsFilled } from "react-icons/tb";
 import { BsViewList } from "react-icons/bs";
+import { useEffect, useState } from "react";
+import { allproducts, twelve } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
-const products = [
-  {
-    name: "Trenton modular sofa",
-    price: "Rs. 25,000.00",
-    image: "/images/modularsofa.png",
-    tooltip: "Muntaha Shah",
-  },
-  {
-    name: "Granite dining table with dining chair",
-    price: "Rs. 25,000.00",
-    image: "/images/chairs.png",
-    tooltip: "Zohair",
-  },
-  {
-    name: "Outdoor bar table and stool",
-    price: "Rs. 25,000.00",
-    image: "/images/chairs2.png",
-    tooltip: "Zohair",
-  },
-  {
-    name: "Plain console with teak mirror",
-    price: "Rs. 25,000.00",
-    image: "/images/mirror.png",
-    tooltip: "Zohair",
-  },
-  {
-    name: "SJP_0825",
-    price: "Rs. 200,000.00",
-    image: "/images/SJP0825.png",
-    tooltip: "Muntaha Shah",
-  },
-  {
-    name: "Bella chair and table",
-    price: "Rs. 100,000.00",
-    image: "/images/Maskgroup(5).png",
-    tooltip: "Zohair",
-  },
-  {
-    name: "Kent coffee table",
-    price: "Rs. 225,000.00",
-    image: "/images/Kentcoffeetable.png",
-    // tooltip: "Zohair",
-  },
-  {
-    name: "Maya sofa three seater",
-    price: "Rs. 115,000.00",
-    image: "/images/Maskgroup(10).png",
-    tooltip: "Zohair",
-  },
-  {
-    name: "Reclaimed teak coffee table",
-    price: "Rs. 25,200.00",
-    image: "/images/Maskgroup(4).png",
-    tooltip: "Muntaha Shah",
-  },
-  {
-    name: "Grain coffee table",
-    price: "Rs. 15,000.00",
-    image: "/images/Graincoffeetable1.png",
-    tooltip: "Zohair",
-  },
-  {
-    name: "Asgaard sofa",
-    price: "Rs. 250,000.00",
-    image: "/images/Asgaard-sofa-1.png",
-    tooltip: "Zohair",
-  },
-  {
-    name: "Plain console_",
-    price: "Rs. 258,200.00",
-    image: "/images/Maskgroup(7).png",
-    tooltip: "Zohair",
-  },
-];
 
-const TopPicksSection = () => {
-   
+
+
+const Shop = () => {
+   const [product, setProduct] = useState <Product[]>([]);
+   useEffect (() => {
+    async function fetchproduct(){
+      const fetchedproducts : Product[] = await client.fetch(twelve)
+      setProduct(fetchedproducts)
+    }
+    fetchproduct()
+
+   },[])
   return (
-    <div>
-    <section className="py-0 px-1 bg-[#FFFFFF] text-center md:text-center justify-center md:justify-center overflow-hidden  ">
+    <div >
+     
+
+<section className="py-0 px-1 bg-[#FFFFFF] text-center md:text-center justify-center md:justify-center overflow-hidden  ">
       <div className="bg-[url(/images/bg-pic.png)] w-full h-[250px] md:h-[316px] bg-cover bg-center flex items-center justify-center relative">
       <div className=" items-center justify-center mb-20 ">
          <Image
@@ -133,51 +77,32 @@ const TopPicksSection = () => {
             </select> 
             </div>
         </div>
-      {/* Wrap everything inside TooltipProvider */}
-      <TooltipProvider>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-0">
-          {products.map((item, index) => (
-            <div key={index} className="p-6 ">
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Image src={item.image}
-                   alt={item.name} 
-                   width={77}
-                   height={77}
-
-                  className="w-full h-48 object-cover rounded" />
-                </TooltipTrigger>
-                <TooltipContent className="p-2 bg-gray-800 text-white text-sm rounded-md">
-                  {item.tooltip}
-                </TooltipContent>
-              </Tooltip>
-              <h3 className="mt-4 text-lg font-sm">{item.name}</h3>
-              <p className="text-black font-bold">{item.price}</p>
-            </div>
-          ))}
-        </div>
-      </TooltipProvider>
-
-     {/* <!-- Free Delivery, Return, and Payment Info --> */}
-<div className="bg-[#FAF4F4] h-32 p-8 mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-center justify-between">
-  <div>
-    <h3 className="font-bold">Free Delivery</h3>
-    <p>On all orders above Rs. 10,000.</p>
-  </div>
-  <div>
-    <h3 className="font-bold">90 Days Return</h3>
-    <p>Easy returns within 90 days.</p>
-  </div>
-  <div>
-    <h3 className="font-bold">Secure Payment</h3>
-    <p>100% secure payment process.</p>
-  </div>
-</div>
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {product.map((product) => (
+      <div key={product._id}
+      className="border rounded-lg shadow-md p-4 ">
+          <h2 className="text-lg font-semibold mt-4">{product.name}</h2>
+        {product.image &&(
+          <Image
+          src={urlFor(product.image).url()}
+          alt="image"
+          width={200}
+          height={200}
+          className="w-full h-48 object-cover rounded-md"
+          />
+        )}
+      
+        <p className="text-gray-500 mt-2">
+          {product.price ? `$${product.price}` : "price not available"}</p>
+      </div>
+    ))};
+    </div>
     </section>
 
     </div>
     
+    
   );
 };
 
-export default TopPicksSection;
+export default Shop;
