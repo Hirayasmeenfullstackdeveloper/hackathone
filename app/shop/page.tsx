@@ -1,17 +1,17 @@
 "use client"
-import { client } from "@/sanity/lib/client"
-// import React {useState} from "react";
-import { Product } from "@/types/product"
-// import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@radix-ui/react-tooltip";
-import Image from "next/image";
 import { BiGridSmall } from "react-icons/bi";
 import { TbAdjustmentsFilled } from "react-icons/tb";
 import { BsViewList } from "react-icons/bs";
+import Image from "next/image";
+import { client } from "@/sanity/lib/client"
+import { Product } from "@/types/product"
 import { useEffect, useState } from "react";
 import { allproducts, twelve } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
-
-
+import Link from "next/link";
+import { addToCart } from "../actions/actions";
+import { Button } from "@/components/ui/button";
+import Swal from 'sweetalert2'
 
 
 const Shop = () => {
@@ -23,9 +23,20 @@ const Shop = () => {
     }
     fetchproduct()
 
-   },[])
+   },[]); 
+   const handleAddToCart : (e: React.MouseEvent, product : Product) =>void = (e, product) =>  {
+    e.preventDefault()
+    addToCart(product)
+    Swal.fire({
+      position : "top-left",
+      icon : "success",
+      title : `${product.name} added to cart`,
+      showConfirmButton : false,
+      timer : 1000
+    })
+   }
   return (
-    <div >
+    <div>
      
 
 <section className="py-0 px-1 bg-[#FFFFFF] text-center md:text-center justify-center md:justify-center overflow-hidden  ">
@@ -77,10 +88,11 @@ const Shop = () => {
             </select> 
             </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 p-16">
     {product.map((product) => (
       <div key={product._id}
       className="border rounded-lg shadow-md p-4 ">
+        <Link href = {`/product/${product.slug.current}`}>
           <h2 className="text-lg font-semibold mt-4">{product.name}</h2>
         {product.image &&(
           <Image
@@ -94,6 +106,12 @@ const Shop = () => {
       
         <p className="text-gray-500 mt-2">
           {product.price ? `$${product.price}` : "price not available"}</p>
+          <Button className="bg-red-300 text-white font-semibold py-2 px-4
+          rounded hover:scale-110 transition-transform duration-400 ease-in-out " onClick={(e) => handleAddToCart(e,product)}>
+          Add To Cart
+         
+          </Button>
+          </Link>
       </div>
     ))};
     </div>
