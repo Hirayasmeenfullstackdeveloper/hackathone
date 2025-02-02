@@ -14,18 +14,19 @@ export const addToCart = (product : Product) =>{
      }
      localStorage.setItem('cart',JSON.stringify(cart))
 }
-export const removeFromCart =(productId : string, quantity :number) => {
+export const removeFromCart =(productId : string , quantity : number) => {
     let cart : Product[] =  JSON.parse(localStorage.getItem('cart')  || '[]' )
     cart = cart.filter(item =>item._id !==productId)
-    localStorage.setItem('cart',JSON.stringify(cart))
+    localStorage.setItems('cart',JSON.stringify(cart))
 } 
-export const updateCartQuantity = (productId : string) => {
+export const updateCartQuantity = (productId : string ,quantity: number) => {
     const cart : Product[] = JSON.parse(localStorage.getItem('cart') || '[]' )
     const productIndex = cart.findIndex( item => item._id === productId)
     if(productIndex > -1){
-        cart[productIndex].stockLevel += 1
+        cart[productIndex].stockLevel = quantity ;
+        localStorage.setItems('cart',JSON.stringify(cart))
     }
 }
-export const getCatrItems = () :Product[] => {
+export const getCartItems = () :Product[] => {
     return JSON.parse(localStorage.getItem('cart') || '[]')
 }

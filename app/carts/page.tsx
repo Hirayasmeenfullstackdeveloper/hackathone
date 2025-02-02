@@ -1,18 +1,19 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { Product } from '@/types/product';
-import { getCatrItems, removeFromCart, updateCartQuantity } from '../actions/actions';
+import { getCartItems, removeFromCart, updateCartQuantity } from '../actions/actions';
 import Swal from 'sweetalert2';
 // import dynamic from 'next/dynamic';
 import { urlFor } from '@/sanity/lib/image';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 const CartPage = () => {
   const [cartItem, setCartItem] = useState<Product[]>([]);
 
   useEffect(() => {
-    setCartItem(getCatrItems());
+    setCartItem(getCartItems());
   }, []);
 
   const handleRemove = (id: string, quantity: number) => {
@@ -26,16 +27,16 @@ const CartPage = () => {
       confirmButtonText: "Yes! remove it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        removeFromCart(id, quantity);
-        setCartItem(getCatrItems());
+        removeFromCart(id,quantity);
+        setCartItem(getCartItems());
         Swal.fire("Removed", "It has been removed", "success");
       }
     });
   };
 
   const handleQuantityChange = (id: string, quantity: number) => {
-    updateCartQuantity(id);
-    setCartItem(getCatrItems());
+    updateCartQuantity(id,quantity);
+    setCartItem(getCartItems());
   };
 
   const handleIncreament = (id: string) => {
@@ -55,7 +56,7 @@ const CartPage = () => {
       0
     );
   };
-
+ const router = useRouter();
   const handleProceed = () => {
     Swal.fire({
       title: "Proceed to checkout?",
@@ -68,6 +69,7 @@ const CartPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Success", "Your order has been successfully processed", "success");
+        router.push("/checkout");
         setCartItem([]); // Clear cart after successful checkout
       }
     });
