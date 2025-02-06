@@ -7,6 +7,8 @@ import Link from "next/link";
 import { urlFor } from "@/sanity/lib/image";
 import { CgChevronRight } from "react-icons/cg";
 import { Product } from "@/types/product";
+import { client } from "@/sanity/lib/client";
+import Swal from "sweetalert2";
 
 
 export default function CheckoutPage() {
@@ -66,15 +68,57 @@ export default function CheckoutPage() {
     setFormErrors(errors);
     return Object.values(errors).every((error) => !error);
   };
+    // if (validateForm()) {
+    //   localStorage.removeItem("appliedDiscount");
+    // //   toast.success("Order placed successfully!");
+    // } else {
+    // //   toast.error("Please fill in all the fields.");
+    // }
+    const handlePlaceOrder = async () => { 
+      Swal.fire({
+        title : "Processing your order",
+        text : "Pease wait a moment",
+        icon : "info",
+        showCancelButton : true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "d33",
+        confirmButtonText: "proceed!",
+      }).then((result) => {
+            if (result.isConfirmed) {
+              if (validateForm()){
+                localStorage.removeItem("appliedDiscount");
+            
+              Swal.fire("Success", "Your order has been successfully processed", "success")
+              } else {
+                Swal.fire("Error!","Please fill in all the fields before proceeding.",);
+              }
+            }
+          });
+      const OrderData ={
+        _type : "order",
+        firstName : formValues.firstName,
+        lastName : formValues.lastName,
+        address : formValues.address,
+        city :  formValues.city,
+        zipCode : formValues.zipCode,
+        phone : formValues.phone,
+        email : formValues.email,
+        cartItems : cartItems.map(item =>({
+          _type :"reference",
+          _ref :item._id
+        })),
+        total : total,
+        discount : discount,
+        orderDate : new Date().toISOString
+      };
+      try{
+        await client.create(OrderData),
+        localStorage.removeItem("appliedDiscount")
+    }  catch(error){
+      console.error("error creating order", error)
 
-  const handlePlaceOrder = () => {
-    if (validateForm()) {
-      localStorage.removeItem("appliedDiscount");
-    //   toast.success("Order placed successfully!");
-    } else {
-    //   toast.error("Please fill in all the fields.");
     }
-  };
+};
 
   return (
     <div className={`min-h-screen bg-gray-50`}>
