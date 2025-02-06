@@ -1,5 +1,4 @@
 import { Product } from "@/types/product";
-import { json } from "stream/consumers";
 
 export const addToCart = (product : Product) =>{
     const cart : Product[] = JSON.parse(localStorage.getItem("cart")   || "[]")
@@ -14,7 +13,7 @@ export const addToCart = (product : Product) =>{
      }
      localStorage.setItem('cart',JSON.stringify(cart))
 }
-export const removeFromCart =(productId : string , quantity : number) => {
+export const removeFromCart =(productId : string ) => {
     let cart : Product[] =  JSON.parse(localStorage.getItem('cart')  || '[]' )
     cart = cart.filter(item =>item._id !==productId)
     localStorage.setItems('cart',JSON.stringify(cart))
