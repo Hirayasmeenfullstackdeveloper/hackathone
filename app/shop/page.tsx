@@ -6,7 +6,7 @@ import Image from "next/image";
 import { client } from "@/sanity/lib/client"
 import { Product } from "@/types/product"
 import { useEffect, useState } from "react";
-import { allproducts, twelve } from "@/sanity/lib/queries";
+import {  twelve } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
 import { addToCart } from "../actions/actions";

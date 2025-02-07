@@ -112,7 +112,7 @@ export default function CheckoutPage() {
         orderDate : new Date().toISOString
       };
       try{
-        await client.create(OrderData),
+        await client.create(OrderData);
         localStorage.removeItem("appliedDiscount")
     }  catch(error){
       console.error("error creating order", error)

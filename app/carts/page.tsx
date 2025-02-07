@@ -27,9 +27,9 @@ const CartPage = () => {
       confirmButtonText: "Yes! remove it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        removeFromCart(id,quantity);
+        removeFromCart(id);
         setCartItem(getCartItems());
-        Swal.fire("Removed", "It has been removed", "success");
+        Swal.fire("Removed", `Removed ${quantity} items`, "success");
       }
     });
   };
